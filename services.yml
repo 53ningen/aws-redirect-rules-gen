@@ -3,6 +3,9 @@
 prefix: aws
 hostname: console.aws.amazon.com
 rules:
+  # Management Console
+  con: "/"
+
   # EC2
   ec2: "ec2/v2/home"
   sg: "ec2/v2/home#SecurityGroups:sort=groupId"
@@ -18,6 +21,9 @@ rules:
 
   # S3
   s3: "s3/home"
+
+  # CloudFront
+  cfor: "cloudformation/home"
 
   # CloudFront
   cf: "cloudfront/home"
@@ -52,8 +58,14 @@ rules:
   # ECS
   ecs: "ecs/home?"
 
+  # EFS
+  efs: "efs/home?"
+
   # Elastic Beanstalk
   eb: "elasticbeanstalk/home?"
+
+  # Redshift
+  red: "redshift/home?"
 
   # Route 53
   r53: "route53/home"
