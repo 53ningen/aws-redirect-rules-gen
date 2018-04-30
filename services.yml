@@ -1,0 +1,59 @@
+---
+
+prefix: aws
+hostname: console.aws.amazon.com
+rules:
+  # EC2
+  ec2: "ec2/v2/home"
+  sg: "ec2/v2/home#SecurityGroups:sort=groupId"
+  ami: "ec2/v2/home#Images:sort=name"
+  eip: "ec2/v2/home#Addresses:sort=PublicIp"
+  elb: "ec2/v2/home#LoadBalancers:sort=loadBalancerName"
+
+  # VPC
+  vpc: "vpc/home#vpcs:"
+  subnet: "vpc/home#subnets:?"
+  routet: "vpc/home#routetables:?"
+  igw: "vpc/home#routetables:?"
+
+  # S3
+  s3: "s3/home"
+
+  # CloudFront
+  cf: "cloudfront/home"
+
+  # RDS
+  rds: "rds/home"
+
+  # IAM
+  iam: "iam/home"
+
+  # SNS
+  sns: "sns/home"
+
+  # SQS
+  sqs: "sqs/home"
+
+  # SES
+  ses: "ses/home"
+
+  # Lambda
+  lambda: "lambda/home"
+
+  # ElastiCache
+  elasti: "elasticache/home?"
+
+  # DynamoDB
+  dynamo: "dynamodb/home?"
+
+  # ElasticSearch Service
+  es: "es/home?"
+
+  # ECS
+  ecs: "ecs/home?"
+
+  # Elastic Beanstalk
+  eb: "elasticbeanstalk/home?"
+
+  # Route 53
+  r53: "route53/home"

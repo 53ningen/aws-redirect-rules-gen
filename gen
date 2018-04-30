@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'erb'
+
+services = YAML.load_file("./services.yml")
+rules = services["rules"]
+
+template = <<"EOF"
+<RoutingRules>
+<% for key in rules.each_key %>
+    <RoutingRule>
+        <Condition>
+            <KeyPrefixEquals><%= services["prefix"] %>/<%= key %></KeyPrefixEquals>
+        </Condition>
+        <Redirect>
+            <HostName><%= services["hostname"] %></HostName>
+            <ReplaceKeyPrefixWith><%= rules[key] %></ReplaceKeyPrefixWith>
+        </Redirect>
+    </RoutingRule>
+<% end %>
+</RoutingRules>
+EOF
+
+renderer = ERB.new(template)
+puts renderer.result()
