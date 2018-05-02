@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'json'
+
+services = YAML.load_file("./services.yml")
+
+rules = []
+services["rules"].each do |key, value|
+  obj = {
+    "Condition" => {
+      "KeyPrefixEquals" => "#{services["prefix"]}/#{key}" },
+      "Redirect" => {
+        "HostName" => "#{services["hostname"]}",
+        "ReplaceKeyPrefixWith" => "#{value}"
+      }
+  }
+  rules.push(obj)
+end
+
+obj = {
+  "IndexDocument" => {
+      "Suffix" => "index.html"
+  },
+  "RoutingRules" => rules
+}
+
+puts obj.to_json

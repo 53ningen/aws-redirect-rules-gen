@@ -69,3 +69,9 @@ rules:
 
   # Route 53
   r53: "route53/home"
+
+  # CloudWatch
+  cw: "cloudwatch/home?"
+
+  # Amazon MQ
+  mq: "amazon-mq/home?"
