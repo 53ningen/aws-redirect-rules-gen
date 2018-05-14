@@ -23,7 +23,7 @@ rules:
   s3: "s3/home"
 
   # CloudFront
-  cfor: "cloudformation/home"
+  cfn: "cloudformation/home"
 
   # CloudFront
   cf: "cloudfront/home"
